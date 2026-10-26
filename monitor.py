@@ -80,11 +80,14 @@ def compare(url, old, new):
     return out
 
 
-def send_push(title, message, priority="default", click=None, tags=None):
+def send_push(title, message, priority="default", click=None, tags=None, forward_email=False):
     topic = os.environ.get("NTFY_TOPIC")
     if not topic:
         return False
     headers = {"Title": title, "Priority": priority}  # headers must be ASCII
+    # ntfy can also forward the alert to email, so no SMTP password is needed
+    if forward_email and os.environ.get("EMAIL_TO") and not os.environ.get("SMTP_PASS"):
+        headers["Email"] = os.environ["EMAIL_TO"]
     if click:
         headers["Click"] = click
     if tags:
@@ -122,7 +125,7 @@ def notify(title, body, priority="default", click=None, tags=None, email=True):
     """Send on every configured channel. Fail only if no channel succeeded."""
     delivered, errors = 0, []
     try:
-        delivered += bool(send_push(title, body, priority, click, tags))
+        delivered += bool(send_push(title, body, priority, click, tags, forward_email=email))
     except Exception as exc:
         errors.append(f"push: {exc}")
     if email:
