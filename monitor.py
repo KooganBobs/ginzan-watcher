@@ -81,13 +81,14 @@ def compare(url, old, new):
 
 
 def send_push(title, message, priority="default", click=None, tags=None, forward_email=False):
-    topic = os.environ.get("NTFY_TOPIC")
+    topic = (os.environ.get("NTFY_TOPIC") or "").strip()
     if not topic:
         return False
     headers = {"Title": title, "Priority": priority}  # headers must be ASCII
     # ntfy can also forward the alert to email, so no SMTP password is needed
-    if forward_email and os.environ.get("EMAIL_TO") and not os.environ.get("SMTP_PASS"):
-        headers["Email"] = os.environ["EMAIL_TO"]
+    email_to = (os.environ.get("EMAIL_TO") or "").strip()
+    if forward_email and email_to and not os.environ.get("SMTP_PASS"):
+        headers["Email"] = email_to
     if click:
         headers["Click"] = click
     if tags:
@@ -98,7 +99,8 @@ def send_push(title, message, priority="default", click=None, tags=None, forward
         headers=headers,
         timeout=20,
     )
-    resp.raise_for_status()
+    if not resp.ok:
+        raise RuntimeError(f"ntfy returned {resp.status_code}: {resp.text[:300]}")
     return True
 
 
