@@ -105,15 +105,15 @@ def send_push(title, message, priority="default", click=None, tags=None, forward
 
 
 def send_email(subject, body):
-    host = os.environ.get("SMTP_HOST")
-    user = os.environ.get("SMTP_USER")
-    password = os.environ.get("SMTP_PASS")
-    to = os.environ.get("EMAIL_TO")
+    host = (os.environ.get("SMTP_HOST") or "").strip()
+    user = (os.environ.get("SMTP_USER") or "").strip()
+    password = (os.environ.get("SMTP_PASS") or "").strip()
+    to = (os.environ.get("EMAIL_TO") or "").strip()
     if not all([host, user, password, to]):
         return False
     msg = EmailMessage()
     msg["Subject"] = subject
-    msg["From"] = user
+    msg["From"] = (os.environ.get("SMTP_FROM") or "").strip() or user
     msg["To"] = to
     msg.set_content(body)
     with smtplib.SMTP(host, int(os.environ.get("SMTP_PORT") or 587), timeout=30) as s:
