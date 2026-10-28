@@ -2,33 +2,18 @@
   "last_heartbeat": "2026-10-27T02:53:59.842200+00:00",
   "pages": {
     "https://www.ginzanonsen.jp/winter/2026/": {
-      "hash": "9aaf5d74a4a42dc58a207dd7954802e17f6ce6e9c4ce3e44dcd63ba00ee2bfb9",
-      "links": [
-        "https://maps.app.goo.gl/VU348Ajoc4H5RHXD6",
-        "https://www.ginzanonsen.jp/winter/2026/en/index.html",
-        "https://www.ginzanonsen.jp/winter/2026/index.html",
-        "https://www.ginzanonsen.jp/winter/2026/zh/index.html"
-      ],
-      "placeholder_count": 1
+      "hash": "ab1560fe2de14719e441e63192968fcf221553363345611b3887c374e6a9b73e",
+      "links": [],
+      "placeholder_count": 0
     },
     "https://www.ginzanonsen.jp/winter/2026/en/index.html": {
-      "hash": "6c61ff2ce135de62ff42d75f99e5303b9be8f6dd6fc69a67d5d6da700a2a8c1c",
-      "links": [
-        "https://maps.app.goo.gl/VU348Ajoc4H5RHXD6",
-        "https://www.ginzanonsen.jp/winter/2026/en/index.html",
-        "https://www.ginzanonsen.jp/winter/2026/index.html",
-        "https://www.ginzanonsen.jp/winter/2026/zh/index.html"
-      ],
-      "placeholder_count": 1
+      "hash": "ab1560fe2de14719e441e63192968fcf221553363345611b3887c374e6a9b73e",
+      "links": [],
+      "placeholder_count": 0
     },
     "https://www.ginzanonsen.jp/winter/2026/zh/index.html": {
-      "hash": "24a90151cfbcee659adba162a249691ad082e888571cf11454197feb5ec5035a",
-      "links": [
-        "https://maps.app.goo.gl/VU348Ajoc4H5RHXD6",
-        "https://www.ginzanonsen.jp/winter/2026/en/index.html",
-        "https://www.ginzanonsen.jp/winter/2026/index.html",
-        "https://www.ginzanonsen.jp/winter/2026/zh/index.html"
-      ],
+      "hash": "ab1560fe2de14719e441e63192968fcf221553363345611b3887c374e6a9b73e",
+      "links": [],
       "placeholder_count": 0
     }
   }
